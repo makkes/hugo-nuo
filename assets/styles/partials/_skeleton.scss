@@ -49,6 +49,10 @@ a {
     }
   }
 
+  .title {
+    opacity: 1;
+  }
+
   & a {
     opacity: 0.5;
     color: $black-ter;

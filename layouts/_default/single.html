@@ -1,0 +1,14 @@
+{{ define "title" }}
+  {{ .Title }} | {{ if isset .Site.Params "seotitle" }}{{ .Site.Params.seotitle }}{{ else }}{{ .Site.Title }}{{ end }}
+{{ end }}
+
+{{ define "main" }}
+    {{ partial "header.html" . }}
+    <!-- Main -->
+    <section class="main post-detail">
+        <article class="post-content">
+            {{ .Content }}
+        </article>
+    </section>
+    {{ partial "footer.html" . }}
+{{ end }}
