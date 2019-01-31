@@ -1,9 +1,15 @@
 {{ define "main" }}
   {{ partial "header.html" . }}
-  <section class="main post-detail">
-    <header class="post-header">
-      <h1 class="post-title">{{ .Title }}</h1>
-      <p class="post-meta">{{ if isset .Params "author" }}{{ .Params.author }}{{ else }}{{ .Site.Params.author }}{{ end }} · {{ .Date.Format "Jan 2, 2006" }}</p>
+    <section class="main post-detail">
+  {{ if .Params.cover }}
+      <header class="post-header with-cover" style="min-height: 20em; background: linear-gradient( rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.7) ), url({{ .Params.cover }}) center/cover">
+  {{ else }}
+      <header class="post-header">
+  {{ end }}
+        <div class="post-header-content">
+          <h1 class="post-title">{{ .Title }}</h1>
+          <p class="post-meta">{{ if isset .Params "author" }}{{ .Params.author }}{{ else }}{{ .Site.Params.author }}{{ end }} · {{ .Date.Format "Jan 2, 2006" }}</p>
+        </div>
     </header>
     <article class="post-content">{{ .Content }}</article>
     <footer class="post-footer">

@@ -1,6 +1,14 @@
 .post-detail {
   & .post-header {
+    position: relative;
     margin-bottom: 2.5rem;
+
+    &.with-cover .post-header-content {
+      position: absolute;
+      bottom: 0.5em;
+      left: 0.5em;
+      color: white;
+    }
 
     & .post-title {
       font-size: $size-3;
