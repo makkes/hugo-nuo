@@ -1,0 +1,14 @@
+<div class="talk-teaser">
+  <h3><a href="{{ .Permalink }}" class="post-link">{{ .Title }}</a></h3>
+  <div class="description">
+      {{ .Description | markdownify }}
+  </div>
+  <div class="assets">
+      {{ if isset .Params "slides" }}
+          <a href={{ .Params.slides }}>Slides</a>{{if isset .Params "video"}},{{end}}
+      {{ end }}
+      {{ if isset .Params "video" }}
+          <a href={{ .Params.video }}>Video</a>
+      {{ end }}
+  </div>
+</div>

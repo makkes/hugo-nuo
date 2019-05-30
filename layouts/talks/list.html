@@ -1,0 +1,21 @@
+{{ define "title" }}
+  {{ if eq .Data.Singular "tag" }}Tag → {{ .Data.Term }}
+  {{ else if eq .Data.Singular "category" }}Category → {{ .Data.Term }}
+  {{ else }}Talks{{ end }}
+  {{ if isset .Site.Params "seotitle" }} | {{ .Site.Params.seotitle }}{{ else }} | {{ .Site.Title }}{{ end }}
+{{ end }}
+
+{{ define "main" }}
+  {{ partial "header.html" . }}
+  <section class="main talks-list">
+      {{ range (.Data.Pages.GroupByDate "2006") }}
+      <h1>{{ .Key }}</h1>
+      <div class="talks">
+          {{ range .Pages.ByDate.Reverse }}
+              {{ .Render "talk" }}
+          {{ end }}
+      </div>
+      {{ end }}
+  </section>
+  {{ partial "footer.html" . }}
+{{ end }}
