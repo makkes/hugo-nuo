@@ -30,12 +30,17 @@
 
   @media screen and (max-width: $tablet) {
     margin-top: 3rem;
+    margin-bottom: 0;
   }
 }
 
 .subtitle {
   margin-bottom: 3rem;
   opacity: 0.7;
+
+  @media screen and (max-width: $tablet) {
+    display: none;
+  }
 }
 
 .menu-toggle {
